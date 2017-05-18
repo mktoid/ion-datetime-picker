@@ -137,10 +137,9 @@ angular.module("ion-datetime-picker", ["ionic"])
             $scope.minute = date.getMinutes();
             $scope.second = date.getSeconds();
             $scope.meridiem = $scope.hour < 12 ? "AM" : "PM";
-
-            $scope.bind.hour = $scope.meridiemEnabled ? ($scope.hour % 12 || 12).toString() : $scope.hour.toString();
-            $scope.bind.minute = ($scope.minute < 10 ? "0" : "") + $scope.minute.toString();
-            $scope.bind.second = ($scope.second < 10 ? "0" : "") + $scope.second.toString();
+            $scope.bind.hour = Number( $scope.meridiemEnabled ? ($scope.hour % 12 || 12).toString() : $scope.hour.toString() );
+            $scope.bind.minute = Number( $scope.minute.toString() );
+            $scope.bind.second = Number( $scope.second.toString() );
             $scope.bind.meridiem = $scope.meridiem;
           }
         };
@@ -164,7 +163,7 @@ angular.module("ion-datetime-picker", ["ionic"])
             }
             changeViewData();
           }
-        };
+        };     
         $scope.change = function(unit) {
           var value = $scope.bind[unit];
           if (value && unit === "meridiem") {
