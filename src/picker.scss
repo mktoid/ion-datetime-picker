@@ -1,3 +1,15 @@
+.ion-datetime-picker-popup {
+    .popup-head {
+        display: none;
+    }
+    .popup-body {
+        padding: 2px;
+    }
+    .popup-buttons {
+        padding: 2px;
+    }
+}
+
 .ion-datetime-picker {
   .calendar {
     text-align: center;
